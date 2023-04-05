@@ -12,7 +12,7 @@ const _nav = [
   {
     component: CNavItem,
     badge: {
-      color: 'info',
+      color: 'primary',
       text: 'Admin',
     },
   },

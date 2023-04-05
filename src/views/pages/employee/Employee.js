@@ -1,44 +1,27 @@
 import React from 'react'
-import DataTable from 'react-data-table-component'
+import Table from 'src/components/DataTables'
+import EmployeesData from 'src/views/data/EmployeesData'
+import { CCard, CCardBody } from '@coreui/react'
 
-const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>
-
-const columns = [
-  {
-    name: 'Employees',
-    selector: (row) => row.employees,
-    sortable: true,
-  },
-  {
-    name: 'Division',
-    selector: (row) => row.division,
-    sortable: true,
-  },
-]
-
-const data = [
-  {
-    id: 1,
-    employees: 'John Doe',
-    division: 'Front End Developer',
-  },
-  {
-    id: 2,
-    employees: 'Sarah',
-    division: 'Backend Developer',
-  },
-]
-
-function Employee() {
+const Employee = () => {
   return (
-    <DataTable
-      title="Employee List"
-      columns={columns}
-      data={data}
-      selectableRows
-      expandableRowsComponent={ExpandedComponent}
-      pagination
-    />
+    <>
+      <CCard
+        className="mb-4"
+        style={{ boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.25)', borderRadius: '20px' }}
+      >
+        <CCardBody
+          style={{
+            paddingTop: '15px',
+            paddingLeft: '0px',
+            paddingRight: '0px',
+            paddingBottom: '15px',
+          }}
+        >
+          <Table data={EmployeesData} />
+        </CCardBody>
+      </CCard>
+    </>
   )
 }
 

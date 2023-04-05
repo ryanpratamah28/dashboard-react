@@ -12,8 +12,6 @@ const loading = (
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
-const Employees = React.lazy(() => import('./views/pages/employee/Employee'))
-const Absent = React.lazy(() => import('./views/pages/absent/Absent'))
 
 const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Register = React.lazy(() => import('./views/pages/register/Register'))
@@ -26,8 +24,6 @@ class App extends Component {
       <BrowserRouter>
         <Suspense fallback={loading}>
           <Routes>
-            <Route exact path="/employees" name="Employee Data" element={<Employees />} />
-            <Route exact path="/absent" name="Absent" element={<Absent />} />
             <Route exact path="/login" name="Login Page" element={<Login />} />
             <Route exact path="/register" name="Register Page" element={<Register />} />
             <Route exact path="/404" name="Page 404" element={<Page404 />} />

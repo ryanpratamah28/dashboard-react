@@ -60,12 +60,13 @@ const AppHeader = () => {
                 style={{ marginRight: '5px' }}
                 className={
                   language === 'Id'
-                    ? 'd-flex bg-light border-0 rounded-pill text-dark active me-2 transition-all duration-500'
+                    ? 'd-flex bg-info border-0 rounded-pill text-dark active me-2 transition-all duration-500'
                     : 'd-flex bg-primary border-0 rounded-pill text-light me-2'
                 }
               >
                 <img
                   src={IndonesianFlag}
+                  alt=""
                   width="25"
                   className="d-flex justify-content-center align-items-center me-2 rounded-1"
                 ></img>
@@ -82,12 +83,13 @@ const AppHeader = () => {
                 id="En"
                 className={
                   language === 'En'
-                    ? 'd-flex bg-light border-0 rounded-pill text-dark active'
+                    ? 'd-flex bg-info border-0 rounded-pill text-dark active'
                     : 'd-flex bg-primary border-0 rounded-pill text-light'
                 }
               >
                 <img
                   src={EnglandFlag}
+                  alt=""
                   width="30"
                   className="d-flex justify-content-center align-items-center me-2 rounded-1"
                 ></img>
