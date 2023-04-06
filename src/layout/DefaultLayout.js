@@ -8,7 +8,7 @@ const DefaultLayout = () => {
         className="mb-4"
         style={{
           width: '100%',
-          backgroundColor: 'rgb(94, 114, 228)',
+          backgroundColor: '#5865f2',
           minHeight: '300px',
           position: 'absolute',
         }}
