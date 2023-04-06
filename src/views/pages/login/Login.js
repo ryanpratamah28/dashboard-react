@@ -20,55 +20,12 @@ import { cilLockLocked, cilUser, cilLockUnlocked } from "@coreui/icons";
 import logoLogin from "src/assets/brand/login-logo.png";
 import { useNavigate } from "react-router-dom";
 
-        const users = [{
-            username: 'admin1',
-            password: '12345678'
-          },
-          {
-            username: 'admin2',
-            password: '012345678'
-          }
-        ];
-
 const Login = () => {
-    const navigate = useNavigate();
-
-    const [data, setData] = useState({
-      username: '',
-      password: ''
-    });
-    const changeHandler = (e) => {
-      setData({
-        ...data,
-        [e.target.name]: e.target.value
-      })
-    }
-
-    const checkUser = () => {
-      const usercheck = users.find(user => (user.username === data.username && user.password === data.password));
-      if (usercheck) {
-        console.log("Login successful");
-        navigate('/')
-      } else {
-        console.log("Wrong password or username");
-      }
-      // console.log(uname);
-      console.log(usercheck);
-    }
-
-    useEffect(() => {
-      checkUser(users)
-    }, [data.username, data.password])
-
-    console.log(data)
 
     return (
         <div className="min-vh-100 d-flex flex-row align-items-center">
             <CContainer>
                 <CRow className="justify-content-center">
-                    <div className="alert alert-warning" id="warning" role="alert" style={{width: 'auto', borderRadius: '10px', marginTop: '-40px'}}>
-                        Data input login akan <strong>langsung tersubmit</strong>, jika data yang anda masukan sudah benar
-                    </div>
                     <CCol
                         md={8}
                         style={{
@@ -90,13 +47,9 @@ const Login = () => {
                                                 placeholder="Username or email"
                                                 aria-describedby = "inputGroupPrepend2"
                                                 name = "username"
-                                                value={data.username}
                                                 required
                                                 type="text"
                                                 style={{ height: '50px' }}
-                                                onChange = {
-                                                  changeHandler
-                                                }
                                             />
                                             <CInputGroupText>
                                                 <CIcon icon={cilUser} />
@@ -104,16 +57,12 @@ const Login = () => {
                                         </CInputGroup>
                                         <CInputGroup className="mb-3">
                                             <CFormInput
-                                                value={data.password}
                                                 type="password"
                                                 name="password"
                                                 placeholder="Password"
                                                 required
                                                 style={{ height: '50px' }}
                                                 aria-describedby = "inputGroupPrepend2"
-                                                onChange = {
-                                                  changeHandler
-                                                }
                                             />
                                             <CInputGroupText>
                                                 <button
