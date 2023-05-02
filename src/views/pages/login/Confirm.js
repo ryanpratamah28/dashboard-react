@@ -72,7 +72,7 @@ const Confirm = () => {
                                                     padding: '0 0 0 25px',
                                                 }}
                                             >
-                                                <CButton color="primary" className="px-4">
+                                                <CButton color="primary" className="px-4 text-light">
                                                     Login
                                                 </CButton>
                                             </CCol>
