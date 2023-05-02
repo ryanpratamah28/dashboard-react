@@ -53,7 +53,7 @@ html:not([dir='rtl']) .sidebar-nav .nav-group-toggle::after {
 
 .sidebar-nav .nav-link {
   color: black !important;
-  margin-left: 5px;
+  margin-left: -5px;
 }
 
 .sidebar-nav .nav-icon {

@@ -1,5 +1,10 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import {
+  useRef,
+  useState,
+  useEffect,
+  useContext
+} from 'react';
 import "src/views/pages/login/login.css";
 import {
   CAvatar,
@@ -19,8 +24,50 @@ import CIcon from "@coreui/icons-react";
 import { cilLockLocked, cilUser, cilLockUnlocked } from "@coreui/icons";
 import logoLogin from "src/assets/brand/login-logo.png";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content'
+import jwt_decode from 'jwt-decode'
 
-const Login = () => {
+async function loginUser() {
+  return fetch('http://13.215.252.80:3000/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify()
+    })
+    .then(data => data.json())
+}
+
+export default function Login() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const Navigate = useNavigate()
+  const MySwal = withReactContent(Swal)
+
+    const handleSubmit = async e => {
+    e.preventDefault();
+    const response = await loginUser({
+        username,
+        password
+    });
+    if ('accessToken' in response) {
+        MySwal("Success", response.message, "success", {
+            buttons: false,
+            timer: 2000,
+        })
+        .then((value) => {
+            localStorage.setItem('accessToken', response['accessToken']);
+            localStorage.setItem('email', JSON.stringify(response['email']));
+            localStorage.setItem('password', JSON.stringify(response['password']));
+            localStorage.setItem('role', JSON.stringify(response['admin']));
+            window.location.href = "/profile";
+        });
+    } else {
+        MySwal("Failed", response.message, "error");
+    }
+    }
+
 
     return (
         <div className="min-vh-100 d-flex flex-row align-items-center">
@@ -36,7 +83,7 @@ const Login = () => {
                         <CCardGroup>
                             <CCard className="p-4" style={{ height: '450px' }}>
                                 <CCardBody>
-                                    <CForm>
+                                    <CForm onSubmit={handleSubmit}>
                                         <h1>Login</h1>
                                         <p className="text-medium-emphasis">
                                             Sign In to your account
@@ -45,10 +92,11 @@ const Login = () => {
                                         <CInputGroup className="mb-4">
                                             <CFormInput
                                                 placeholder="Username or email"
-                                                aria-describedby = "inputGroupPrepend2"
                                                 name = "username"
-                                                required
-                                                type="text"
+                                                id="username"
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                value={email}
+                                                type="email"
                                                 style={{ height: '50px' }}
                                             />
                                             <CInputGroupText>
@@ -58,11 +106,12 @@ const Login = () => {
                                         <CInputGroup className="mb-3">
                                             <CFormInput
                                                 type="password"
+                                                id="password"
                                                 name="password"
                                                 placeholder="Password"
-                                                required
                                                 style={{ height: '50px' }}
-                                                aria-describedby = "inputGroupPrepend2"
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                value={password}
                                             />
                                             <CInputGroupText>
                                                 <button
@@ -84,8 +133,9 @@ const Login = () => {
                                             >
                                                 <CButton
                                                     color="primary"
-                                                    className="px-4"
+                                                    className="px-4 text-light"
                                                     type="submit"
+
                                                 >
                                                     Login
                                                 </CButton>
@@ -136,4 +186,3 @@ const Login = () => {
   );
 };
 
-export default Login;

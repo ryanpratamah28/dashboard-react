@@ -4,6 +4,9 @@ import { cilDescription, cilHome, cilUser, cilBarChart } from '@coreui/icons'
 import logoProfil from 'src/assets/brand/profil.png'
 import { CNavGroup, CAvatar, CNavItem, CNavTitle } from '@coreui/react'
 
+var emailGet = localStorage.getItem('email')
+var nameGet = localStorage.getItem('loginUsername')
+
 const _nav = [
   {
     component: CNavItem,
@@ -18,24 +21,26 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Yoga Pratama',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon invisible" />,
+    name: emailGet,
+    style:{padding: '0 0 0 35px'},
     items: [
       {
         component: CNavItem,
-        name: 'Username@gmail.com',
+        name: emailGet,
+        style:{margin: '0 0 0 -40px'},
         to: '#',
       },
       {
         component: CNavItem,
-        name: 'Username123',
+        name: nameGet,
+        style:{margin: '0 0 0 -40px'},
         to: '#',
       },
     ],
   },
   {
     component: CNavItem,
-    name: 'Username123',
+    name: nameGet,
   },
   {
     component: CNavTitle,

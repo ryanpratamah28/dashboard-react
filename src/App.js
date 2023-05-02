@@ -12,7 +12,6 @@ const loading = (
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
-
 const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Confirm = React.lazy(() => import('./views/pages/login/Confirm'))
 const Reset = React.lazy(() => import('./views/pages/login/Reset'))
