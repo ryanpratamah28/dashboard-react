@@ -26,13 +26,13 @@ import logoLogin from "src/assets/brand/login-logo.png";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
-import jwt_decode from 'jwt-decode'
 
 async function loginUser() {
   return fetch('http://13.215.252.80:3000/auth/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+
       },
       body: JSON.stringify()
     })
@@ -59,9 +59,9 @@ export default function Login() {
         .then((value) => {
             localStorage.setItem('accessToken', response['accessToken']);
             localStorage.setItem('email', JSON.stringify(response['email']));
-            localStorage.setItem('password', JSON.stringify(response['password']));
-            localStorage.setItem('role', JSON.stringify(response['admin']));
-            window.location.href = "/profile";
+            localStorage.setItem('name', JSON.stringify(response['name']));
+            localStorage.setItem('role', JSON.stringify(response['role']));
+            Navigate('/dashboard')
         });
     } else {
         MySwal("Failed", response.message, "error");
