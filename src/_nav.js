@@ -1,8 +1,17 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cilDescription, cilHome, cilUser, cilBarChart } from '@coreui/icons'
+import { cilDescription, cilHome, cilUser, cilBarChart, cilBell } from '@coreui/icons'
 import logoProfil from 'src/assets/brand/profil.png'
 import { CNavGroup, CAvatar, CNavItem, CNavTitle } from '@coreui/react'
+
+global.Buffer = global.Buffer || require('buffer').Buffer
+
+const token =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoicnlhbnByYXRAZ21haWwuY29tIiwibmFtZSI6InJ5YW4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MTcwNDMyNX0.qDTwXh2u4x-73Vp1P2kR8y3w3rLgTVB4RNAOfJ8A4d8'
+const decode = Buffer.from(token, 'base64').toString()
+console.log(decode)
+
+sessionStorage.setItem('sub', JSON.stringify(2))
 
 const _nav = [
   {
@@ -34,10 +43,6 @@ const _nav = [
     ],
   },
   {
-    component: CNavItem,
-    name: 'Username123',
-  },
-  {
     component: CNavTitle,
     name: 'Menu',
   },
@@ -46,6 +51,12 @@ const _nav = [
     name: 'Dashboard',
     to: '/dashboard',
     icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Annnouncement',
+    to: '/announcement',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,

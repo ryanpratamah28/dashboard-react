@@ -7,30 +7,82 @@ body::-webkit-scrollbar {
   margin: 0;
 }
 
+.sidebar {
+  background-color: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-nav {
+  background-color: transparent !important;
+  padding-top: 90px !important;
+}
+
+.sidebar-nav .nav-link {
+  color: black !important;
+}
+
+.sidebar-nav .nav-icon {
+  color: black !important;
+}
+
 .simplebar-content {
   background-color: rgb(255, 255, 255);
-  height: 716px;
-  overflow: none;
   border-radius: 15px 15px 0 0;
-  padding-top: 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  height: 700px;
+  padding-top: 20px;
+  margin-top: 10px;
   margin-right: 10px;
 }
 
-.nav-group-items .nav-item {
-  text-align: left !important;
-  margin-left: -10px;
-}
-
-.simplebar-content .nav-title {
-  text-align: left;
-  margin-top: 30px;
-  color: black;
+.simplebar-content-wrapper {
+  padding-left: 10px !important;
 }
 
 .simplebar-content .nav-item {
   text-align: center;
   color: black;
+}
+
+.simplebar-content .nav-title {
+  margin: 0 !important;
+  text-align: left;
+  color: black;
+}
+
+.simplebar-content .nav-item .avatar {
+  margin: 40px 0 40px 0;
+  width: 90px;
+}
+
+.simplebar-content .nav-item .nav-link {
+  color: black;
+}
+
+.simplebar-content .nav-item .badge {
+  padding: 10px 15px;
+  font-size: 13px;
+}
+
+a.nav-link.nav-group-toggle::after {
+  margin: 0px 0px 0px 20px !important;
+}
+
+.sidebar-nav .nav-group-toggle {
+  display: flex;
+}
+
+.sidebar-nav .nav-group-toggle::after {
+  filter: brightness(0.1%);
+}
+
+/* 
+.nav-group-items .nav-item {
+  text-align: left !important;
+  margin-left: -10px;
 }
 
 .simplebar-content .nav-item .nav-icon.rounded {
@@ -51,45 +103,14 @@ html:not([dir='rtl']) .sidebar-nav .nav-group-toggle::after {
   width: fit-content;
 }
 
-.sidebar-nav .nav-link {
-  color: black !important;
-  margin-left: 5px;
-}
-
-.sidebar-nav .nav-icon {
-  color: black !important;
-}
-
-.sidebar-nav .nav-group-toggle::after {
-  filter: brightness(0.1%);
-}
-
-.simplebar-content .nav-item .avatar {
-  margin: 100px 0 40px 0;
-  width: 80px;
-}
-
-.simplebar-content .nav-item .badge {
-  padding: 10px 15px;
-  font-size: 13px;
-  margin: 10px 0 -5px 0;
-}
-
-.simplebar-content .nav-item .nav-link {
-  color: black;
-}
-
-.sidebar {
-  background-color: transparent;
-}
-
 .sidebar .sidebar-brand {
   background-color: transparent;
 }
 
 .sidebar .sidebar-brand svg {
   display: none;
-}
+} 
+*/
 
 .inWILn {
   padding-left: 22px !important;
