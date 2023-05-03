@@ -1,7 +1,5 @@
 import React from "react";
-
 import { useRef, useState, useEffect, useContext } from "react";
-
 import "src/views/pages/login/login.css";
 import {
   CAvatar,
@@ -22,9 +20,6 @@ import { cilLockLocked, cilUser } from "@coreui/icons";
 import logoLogin from "src/assets/brand/login-logo.png";
 
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import jwt_decode from "jwt-decode";
 
 // async function loginUser() {
 //   return fetch("http://13.215.252.80:3000/auth/login", {

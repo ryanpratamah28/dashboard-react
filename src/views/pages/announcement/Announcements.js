@@ -14,7 +14,7 @@ function Announcements() {
 
   async function getAnnouncements() {
     try {
-      let response = await axios.get('http://localhost:3000/announcement/show')
+      let response = await axios.get('http://13.215.252.80:3000/announcement/show')
       setAnnouncements(response.data.data)
     } catch (e) {
       console.log(e.message)
@@ -27,7 +27,7 @@ function Announcements() {
 
   async function handleDelete(announcement) {
     setAnnouncements(announcements.filter((a) => a.id !== announcement.id))
-    await axios.delete(`${'http://localhost:3000/announcement/delete'}/${announcement.id}`)
+    await axios.delete(`${'http://13.215.252.80:3000/announcement/delete'}/${announcement.id}`)
   }
 
   return (

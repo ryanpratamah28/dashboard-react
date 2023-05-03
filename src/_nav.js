@@ -4,7 +4,6 @@ import { cilDescription, cilHome, cilUser, cilBarChart, cilBell } from '@coreui/
 import logoProfil from 'src/assets/brand/profil.png'
 import { CNavGroup, CAvatar, CNavItem, CNavTitle } from '@coreui/react'
 
-
 var emailGet = localStorage.getItem('email')
 var nameGet = localStorage.getItem('loginUsername')
 
@@ -44,7 +43,6 @@ const _nav = [
     name: nameGet,
   },
   {
-
     component: CNavTitle,
     name: 'Menu',
   },
