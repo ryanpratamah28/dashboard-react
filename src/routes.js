@@ -1,6 +1,10 @@
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+
+const Announcement = React.lazy(() => import('./views/pages/announcement/Announcements'))
+const CreateAnnouncement = React.lazy(() => import('./views/pages/announcement/Announcement'))
+
 const Employees = React.lazy(() => import('./views/pages/employee/Employee'))
 const Absent = React.lazy(() => import('./views/pages/absent/Absent'))
 
