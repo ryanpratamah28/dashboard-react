@@ -16,7 +16,7 @@ import {
   CRow,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser, cilLockUnlocked } from "@coreui/icons";
+import { cilLockLocked, cilUser } from "@coreui/icons";
 import logoLogin from "src/assets/brand/login-logo.png";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -46,7 +46,7 @@ export default function Login() {
             sessionStorage.setItem("role", JSON.stringify(response.user.role));
             Navigate('/dashboard')
         } else {
-          MySwal("Failed", "error");
+        //   MySwal("Failed", "error");
         }
   };
 
