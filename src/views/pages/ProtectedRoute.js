@@ -5,7 +5,7 @@ const ProtectedRoute = (props) => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const checkAdminToken = () => {
-        const AdminToken = localStorage.getItem('accessToken');
+        const AdminToken = sessionStorage.getItem('accessToken');
         if (!AdminToken || AdminToken === 'undefined') {
             setIsLoggedIn(false);
             return navigate('/login');
