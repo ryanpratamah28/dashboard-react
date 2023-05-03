@@ -38,7 +38,7 @@ export default function Login() {
       },
       body: JSON.stringify({ email, password }),
     }).then((data) => data.json());
-        if ("accessToken" in response && response.user.role == 'admin') {
+        if ("accessToken" in response) {
             console.log(response)
             sessionStorage.setItem("accessToken", response.accessToken);
             sessionStorage.setItem("email", JSON.stringify(response.user.email));
