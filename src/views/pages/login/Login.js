@@ -29,28 +29,6 @@ export default function Login() {
   const Navigate = useNavigate();
   const MySwal = withReactContent(Swal);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const response = await loginUser({
-  //     username,
-  //     password,
-  //   });
-  //   if ("accessToken" in response) {
-  //     MySwal("Success", response.message, "success", {
-  //       buttons: false,
-  //       timer: 2000,
-  //     }).then((value) => {
-  //       localStorage.setItem("accessToken", response["accessToken"]);
-  //       localStorage.setItem("email", JSON.stringify(response["email"]));
-  //       localStorage.setItem("password", JSON.stringify(response["password"]));
-  //       localStorage.setItem("role", JSON.stringify(response["admin"]));
-  //       window.location.href = "/profile";
-  //     });
-  //   } else {
-  //     MySwal("Failed", response.message, "error");
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("http://13.215.252.80:3000/auth/login", {
