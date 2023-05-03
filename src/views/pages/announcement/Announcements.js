@@ -11,10 +11,16 @@ import CIcon from '@coreui/icons-react'
 function Announcements() {
   const navigate = useNavigate()
   const [announcements, setAnnouncements] = useState([])
+  const accessToken = sessionStorage.getItem('accessToken')
 
   async function getAnnouncements() {
     try {
-      let response = await axios.get('http://13.215.252.80:3000/announcement/show')
+      let response = await axios.get('http://13.215.252.80:3000/announcement/show', {
+        headers: {
+          'x-access-token': accessToken,
+          'Content-Type': 'application/json',
+        },
+      })
       setAnnouncements(response.data.data)
     } catch (e) {
       console.log(e.message)
@@ -27,7 +33,12 @@ function Announcements() {
 
   async function handleDelete(announcement) {
     setAnnouncements(announcements.filter((a) => a.id !== announcement.id))
-    await axios.delete(`${'http://13.215.252.80:3000/announcement/delete'}/${announcement.id}`)
+    await axios.delete(`${'http://13.215.252.80:3000/announcement/delete'}/${announcement.id}`, {
+      headers: {
+        'x-access-token': accessToken,
+        'Content-Type': 'application/json',
+      },
+    })
   }
 
   return (

@@ -7,6 +7,7 @@ import { CCol, CCard, CCardBody, CButton, CForm, CFormInput } from '@coreui/reac
 function Annnouncement() {
   const navigate = useNavigate()
   const { id } = useParams()
+  const accessToken = sessionStorage.getItem('accessToken')
 
   const [announcement, setAnnouncement] = useState({
     title: '',
@@ -18,7 +19,11 @@ function Annnouncement() {
 
     const fetchAnnouncement = async () => {
       try {
-        const response = await axios.get(`http://13.215.252.80:3000/announcement/show/${id}`)
+        const response = await axios.get(`http://13.215.252.80:3000/announcement/show/${id}`, {
+          headers: {
+            Authorization: accessToken,
+          },
+        })
         setAnnouncement(response.data)
       } catch (e) {
         console.error(e)
@@ -32,10 +37,20 @@ function Annnouncement() {
 
     try {
       if (id === 'new') {
-        axios.post(`http://13.215.252.80:3000/announcement/create`, announcement)
+        axios.post(`http://13.215.252.80:3000/announcement/create`, announcement, {
+          headers: {
+            'x-access-token': accessToken,
+            'Content-Type': 'application/json',
+          },
+        })
         return navigate('/announcement')
       } else {
-        axios.put(`http://13.215.252.80:3000/announcement/update/${id}`, announcement)
+        axios.put(`http://13.215.252.80:3000/announcement/update/${id}`, announcement, {
+          headers: {
+            'x-access-token': accessToken,
+            'Content-Type': 'application/json',
+          },
+        })
         return navigate('/announcement')
       }
     } catch (error) {
