@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { CInputGroup, CInputGroupText, CFormInput } from '@coreui/react'
 import CIcon from '@coreui/icons-react'

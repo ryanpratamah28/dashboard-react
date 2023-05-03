@@ -4,14 +4,9 @@ import { cilDescription, cilHome, cilUser, cilBarChart, cilBell } from '@coreui/
 import logoProfil from 'src/assets/brand/profil.png'
 import { CNavGroup, CAvatar, CNavItem, CNavTitle } from '@coreui/react'
 
-global.Buffer = global.Buffer || require('buffer').Buffer
 
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoicnlhbnByYXRAZ21haWwuY29tIiwibmFtZSI6InJ5YW4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MTcwNDMyNX0.qDTwXh2u4x-73Vp1P2kR8y3w3rLgTVB4RNAOfJ8A4d8'
-const decode = Buffer.from(token, 'base64').toString()
-console.log(decode)
-
-sessionStorage.setItem('sub', JSON.stringify(2))
+var emailGet = localStorage.getItem('email')
+var nameGet = localStorage.getItem('loginUsername')
 
 const _nav = [
   {
@@ -27,22 +22,29 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Yoga Pratama',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon invisible" />,
+    name: emailGet,
+    style: { padding: '0 0 0 35px' },
     items: [
       {
         component: CNavItem,
-        name: 'Username@gmail.com',
+        name: emailGet,
+        style: { margin: '0 0 0 -40px' },
         to: '#',
       },
       {
         component: CNavItem,
-        name: 'Username123',
+        name: nameGet,
+        style: { margin: '0 0 0 -40px' },
         to: '#',
       },
     ],
   },
   {
+    component: CNavItem,
+    name: nameGet,
+  },
+  {
+
     component: CNavTitle,
     name: 'Menu',
   },

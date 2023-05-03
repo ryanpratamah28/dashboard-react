@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import "src/views/pages/login/login.css";
 import {
@@ -68,7 +69,7 @@ const Reset = () => {
                           padding: "0 0 0 25px",
                         }}
                       >
-                        <CButton color="primary" className="px-4">
+                        <CButton color="primary" className="px-4 text-light">
                           Send
                         </CButton>
                       </CCol>

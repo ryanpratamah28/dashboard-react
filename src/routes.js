@@ -10,13 +10,9 @@ const Absent = React.lazy(() => import('./views/pages/absent/Absent'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
-  { path: '/dashboard', name: 'Dashboard', element: Dashboard },
-
-  { path: '/announcement', name: 'Announcement', element: Announcement },
-  { path: '/announcement/:id', name: 'Create Announcement', element: CreateAnnouncement },
-
   { path: '/employees', name: 'Employees', element: Employees },
   { path: '/absent', name: 'Absent', element: Absent },
+  { path: '/dashboard', name: 'Dashboard', element: Dashboard },
 ]
 
 export default routes

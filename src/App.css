@@ -67,8 +67,11 @@ body::-webkit-scrollbar {
   font-size: 13px;
 }
 
-a.nav-link.nav-group-toggle::after {
-  margin: 0px 0px 0px 20px !important;
+
+.sidebar-nav .nav-link {
+  color: black !important;
+  margin-left: -5px;
+
 }
 
 .sidebar-nav .nav-group-toggle {
