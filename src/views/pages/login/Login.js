@@ -1,5 +1,7 @@
 import React from "react";
+
 import { useRef, useState, useEffect, useContext } from "react";
+
 import "src/views/pages/login/login.css";
 import {
   CAvatar,
@@ -16,8 +18,9 @@ import {
   CRow,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser, cilLockUnlocked } from "@coreui/icons";
+import { cilLockLocked, cilUser } from "@coreui/icons";
 import logoLogin from "src/assets/brand/login-logo.png";
+
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
