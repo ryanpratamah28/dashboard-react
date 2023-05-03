@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useMemo } from 'react'
 import DataTable from 'react-data-table-component'
 import { createTheme } from 'react-data-table-component'
