@@ -21,14 +21,14 @@ function Announcements() {
           'Content-Type': 'application/json',
         },
       })
-      setAnnouncements(response.data.data)
+      setAnnouncements(response.data)
     } catch (e) {
       console.log(e.message)
     }
   }
 
   useEffect(() => {
-    getAnnouncements()
+    getAnnouncements() //eslint-disable-next-line
   }, [])
 
   async function handleDelete(announcement) {
@@ -37,6 +37,7 @@ function Announcements() {
       headers: {
         'x-access-token': accessToken,
         'Content-Type': 'application/json',
+        cache: 'no-cache',
       },
     })
   }

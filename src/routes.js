@@ -13,6 +13,8 @@ const routes = [
   { path: '/employees', name: 'Employees', element: Employees },
   { path: '/absent', name: 'Absent', element: Absent },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/announcement', name: 'Announcement', element: Announcement },
+  { path: '/announcement/create', name: 'Create Announcement', element: CreateAnnouncement },
 ]
 
 export default routes

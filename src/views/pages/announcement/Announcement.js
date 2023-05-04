@@ -21,10 +21,11 @@ function Annnouncement() {
       try {
         const response = await axios.get(`http://13.215.252.80:3000/announcement/show/${id}`, {
           headers: {
-            Authorization: accessToken,
+            'x-access-token': accessToken,
+            'Content-Type': 'application/json',
           },
         })
-        setAnnouncement(response.data)
+        setAnnouncement(response.data.data)
       } catch (e) {
         console.error(e)
       }
