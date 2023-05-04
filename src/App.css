@@ -65,14 +65,14 @@ html:not([dir='rtl']) .sidebar-nav .nav-group-toggle::after {
 }
 
 .simplebar-content .nav-item .avatar {
-  margin: 100px 0 40px 0;
+  margin: 70px 0 40px 0;
   width: 80px;
 }
 
 .simplebar-content .nav-item .badge {
   padding: 10px 15px;
   font-size: 13px;
-  margin: 10px 0 -5px 0;
+  margin: 10px 0 5px 0;
 }
 
 .simplebar-content .nav-item .nav-link {

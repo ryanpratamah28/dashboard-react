@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import "src/views/pages/login/login.css";
 import {
   CAvatar,
@@ -9,7 +9,6 @@ import {
   CCardGroup,
   CCol,
   CContainer,
-  CForm,
   CFormInput,
   CInputGroup,
   CInputGroupText,
@@ -21,7 +20,6 @@ import logoLogin from "src/assets/brand/login-logo.png";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -38,16 +36,28 @@ export default function Login() {
       },
       body: JSON.stringify({ email, password }),
     }).then((data) => data.json());
-        if ("accessToken" in response && response.user.role == 'admin') {
-            console.log(response)
-            sessionStorage.setItem("accessToken", response.accessToken);
-            sessionStorage.setItem("email", JSON.stringify(response.user.email));
-            sessionStorage.setItem("name", JSON.stringify(response.user.name));
-            sessionStorage.setItem("role", JSON.stringify(response.user.role));
-            Navigate('/dashboard')
-        } else {
-        //   MySwal("Failed", "error");
-        }
+    if ("accessToken" in response && response.user.role === "admin") {
+      MySwal.fire({
+        icon: "success",
+        title: "Login success",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      console.log(response);
+      sessionStorage.setItem("accessToken", response.accessToken);
+      sessionStorage.setItem("email", JSON.stringify(response.user.email));
+      sessionStorage.setItem("name", JSON.stringify(response.user.name));
+      sessionStorage.setItem("role", JSON.stringify(response.user.role));
+      Navigate("/dashboard");
+    } else {
+      MySwal.fire({
+        icon: "error",
+        title: "Login error",
+        text: "make sure your data is correct",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
   };
 
   return (

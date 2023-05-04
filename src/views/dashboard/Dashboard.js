@@ -3,7 +3,8 @@ import React from 'react'
 import { CCard, CCardBody, CContainer } from '@coreui/react'
 import VectorImg from '../../assets/images/avatars/Vector Employee.png'
 
-var nameGet = localStorage.getItem('loginUsername')
+var nameGet = sessionStorage.getItem('name')
+var name = nameGet.replace(/["]/g, '')
 
 const Dashboard = () => {
   return (
@@ -27,7 +28,7 @@ const Dashboard = () => {
 
             <div className="content p-4">
               <div className="title mb-4 text-primary">
-                <h3 style={{ fontWeight: '500' }}>Hello, {nameGet}</h3>
+                <h3 style={{ fontWeight: '500' }}>Hello, {name}</h3>
                 <h3 style={{ fontWeight: '500' }}>Selamat Datang di Aplikasi HR KSN</h3>
               </div>
 
