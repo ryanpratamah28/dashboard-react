@@ -1,11 +1,21 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cilDescription, cilHome, cilUser, cilBarChart, cilBell } from '@coreui/icons'
+import {
+  cilDescription,
+  cilHome,
+  cilUser,
+  cilBarChart,
+  cilBell,
+  cilAccountLogout,
+} from '@coreui/icons'
 import logoProfil from 'src/assets/brand/profil.png'
 import { CNavGroup, CAvatar, CNavItem, CNavTitle } from '@coreui/react'
 
-var emailGet = localStorage.getItem('email')
-var nameGet = localStorage.getItem('loginUsername')
+var emailGet = sessionStorage.getItem('email')
+var nameGet = sessionStorage.getItem('name')
+
+var name = nameGet.replace(/["]/g, '')
+var email = emailGet.replace(/["]/g, '')
 
 const _nav = [
   {
@@ -21,26 +31,22 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: emailGet,
-    style: { padding: '0 0 0 35px' },
+    name: email,
+    style: { padding: '0 0 0 30px' },
     items: [
       {
         component: CNavItem,
-        name: emailGet,
+        name: email,
         style: { margin: '0 0 0 -40px' },
         to: '#',
       },
       {
         component: CNavItem,
-        name: nameGet,
+        name: name,
         style: { margin: '0 0 0 -40px' },
         to: '#',
       },
     ],
-  },
-  {
-    component: CNavItem,
-    name: nameGet,
   },
   {
     component: CNavTitle,
@@ -85,12 +91,13 @@ const _nav = [
         name: 'Register',
         to: '/register',
       },
-      {
-        component: CNavItem,
-        name: 'Error 404',
-        to: '/404',
-      },
     ],
+  },
+  {
+    component: CNavItem,
+    name: 'Logout',
+    to: '/logout',
+    icon: <CIcon icon={cilAccountLogout} customClassName="nav-icon" />,
   },
 ]
 

@@ -14,6 +14,7 @@ const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
 const Login = React.lazy(() => import('./views/pages/login/Login'))
+const Logout = React.lazy(() => import('./views/pages/login/Logout'))
 const Confirm = React.lazy(() => import('./views/pages/login/Confirm'))
 const Reset = React.lazy(() => import('./views/pages/login/Reset'))
 const Register = React.lazy(() => import('./views/pages/register/Register'))
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path="/confirm" name="Login Page" element={<Confirm />} />
             <Route exact path="/reset" name="Login Page" element={<Reset />} />
             <Route exact path="/login" name="Login Page" element={<Login />} />
+            <Route exact path="/logout" name="Logout" element={<Logout />} />
             <Route exact path="/register" name="Register Page" element={<Register />} />
             <Route exact path="/404" name="Page 404" element={<Page404 />} />
             <Route exact path="/500" name="Page 500" element={<Page500 />} />

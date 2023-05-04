@@ -4,7 +4,6 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import './App.css'
-import { AuthProvider } from './views/pages/login/context/AuthProvider'
 
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
@@ -14,9 +13,7 @@ import { RecoilRoot } from 'recoil'
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <RecoilRoot>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <App />
     </RecoilRoot>
   </Provider>,
 )
