@@ -17,11 +17,11 @@ function Announcements() {
     try {
       let response = await axios.get('http://13.215.252.80:3000/announcement/show', {
         headers: {
-          'x-access-token': accessToken,
+          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
       })
-      setAnnouncements(response.data)
+      setAnnouncements(response.data.data)
     } catch (e) {
       console.log(e.message)
     }
@@ -32,14 +32,17 @@ function Announcements() {
   }, [])
 
   async function handleDelete(announcement) {
-    setAnnouncements(announcements.filter((a) => a.id !== announcement.id))
-    await axios.delete(`${'http://13.215.252.80:3000/announcement/delete'}/${announcement.id}`, {
-      headers: {
-        'x-access-token': accessToken,
-        'Content-Type': 'application/json',
-        cache: 'no-cache',
-      },
-    })
+    try {
+      setAnnouncements(announcements.filter((a) => a.id !== announcement.id))
+      await axios.delete(`${'http://13.215.252.80:3000/announcement'}/${announcement.id}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -57,13 +60,9 @@ function Announcements() {
           </div>
 
           <CContainer className="p-0">
-            <CRow
-              xs={{ cols: 1, gutter: 2 }}
-              md={{ cols: 2, gutter: 3 }}
-              lg={{ cols: 3, gutter: 4 }}
-            >
-              <CCol>
-                {announcements.map((announcement) => (
+            <CRow>
+              {announcements.map((announcement) => (
+                <CCol xs={12} md={6} xxl={4} className="mt-2 mb-2">
                   <CCard key={announcement.id}>
                     <CCardBody>
                       <div className="d-flex mb-4">
@@ -99,8 +98,8 @@ function Announcements() {
                       </div>
                     </CCardBody>
                   </CCard>
-                ))}
-              </CCol>
+                </CCol>
+              ))}
             </CRow>
           </CContainer>
         </CCardBody>
