@@ -1,6 +1,13 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cilDescription, cilHome, cilUser, cilBarChart, cilAccountLogout } from '@coreui/icons'
+import {
+  cilDescription,
+  cilHome,
+  cilUser,
+  cilBarChart,
+  cilBell,
+  cilAccountLogout,
+} from '@coreui/icons'
 import logoProfil from 'src/assets/brand/profil.png'
 import { CNavGroup, CAvatar, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -50,6 +57,12 @@ const _nav = [
     name: 'Dashboard',
     to: '/dashboard',
     icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Annnouncement',
+    to: '/announcement',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
