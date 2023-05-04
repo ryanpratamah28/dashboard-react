@@ -19,9 +19,9 @@ function Annnouncement() {
 
     const fetchAnnouncement = async () => {
       try {
-        const response = await axios.get(`http://13.215.252.80:3000/announcement/show/${id}`, {
+        const response = await axios.get(`${'http://13.215.252.80:3000/announcement/show'}/${id}`, {
           headers: {
-            'x-access-token': accessToken,
+            Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json',
           },
         })
@@ -37,18 +37,18 @@ function Annnouncement() {
     e.preventDefault()
 
     try {
-      if (id === 'new') {
+      if (id === 'create') {
         axios.post(`http://13.215.252.80:3000/announcement/create`, announcement, {
           headers: {
-            'x-access-token': accessToken,
+            Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json',
           },
         })
         return navigate('/announcement')
       } else {
-        axios.put(`http://13.215.252.80:3000/announcement/update/${id}`, announcement, {
+        axios.patch(`${'http://13.215.252.80:3000/announcement/update'}/${id}`, announcement, {
           headers: {
-            'x-access-token': accessToken,
+            Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json',
           },
         })
@@ -73,6 +73,7 @@ function Annnouncement() {
             <CCol xs={12}>
               <CFormInput
                 id="inputJudul"
+                name="title"
                 label="Judul"
                 placeholder="Judul.."
                 value={announcement.title}
@@ -82,6 +83,7 @@ function Annnouncement() {
             <CCol xs={12}>
               <CFormInput
                 id="inputDeskripsi"
+                name="description"
                 label="Deskripsi"
                 placeholder="Deskripsi..."
                 value={announcement.description}
@@ -90,7 +92,7 @@ function Annnouncement() {
             </CCol>
             <CCol xs={12}>
               <CButton type="submit" onClick={handleSubmit} className="text-white">
-                {id === 'new' ? 'Submit' : 'Update'}
+                {id === 'create' ? 'Submit' : 'Update'}
               </CButton>
             </CCol>
           </CForm>
