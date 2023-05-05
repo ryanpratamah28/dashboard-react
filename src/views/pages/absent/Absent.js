@@ -1,13 +1,14 @@
 import React from 'react'
 import { CCard, CCardBody } from '@coreui/react'
-import PieChart from 'src/components/PieChart'
+import BarChart from 'src/components/BarChart'
+import PrecentageChart from 'src/components/PrecentageChart'
 
 function Absent() {
   return (
     <>
       <CCard className="mb-4">
         <CCardBody>
-          <PieChart />
+          <PrecentageChart />
         </CCardBody>
       </CCard>
     </>

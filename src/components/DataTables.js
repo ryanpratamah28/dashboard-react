@@ -73,8 +73,8 @@ const Table = (props) => {
       sortable: true,
     },
     {
-      name: 'Division',
-      selector: (row) => row.division,
+      name: 'Description',
+      selector: (row) => row.description,
       sortable: true,
     },
     {

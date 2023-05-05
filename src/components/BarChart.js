@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { CChartPie } from '@coreui/react-chartjs'
+import { CChartBar } from '@coreui/react-chartjs'
 import { Chart as ChartJs, ArcElement, Tooltip, Legend } from 'chart.js'
 
 ChartJs.register(Tooltip, ArcElement, Legend)
 
-function PieChart() {
+function BarChart() {
   const [chart, setChart] = useState([])
 
   const baseUrl = 'https://api.coinranking.com/v2/coins'
@@ -60,9 +60,9 @@ function PieChart() {
 
   return (
     <div>
-      <CChartPie data={data} height={400} options={options} />
+      <CChartBar data={data} height={400} options={options} />
     </div>
   )
 }
 
-export default PieChart
+export default BarChart
